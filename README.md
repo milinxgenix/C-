@@ -1,4 +1,4 @@
-# C++' NOTES BY KUMAR MILIND
+# C++ NOTES BY KUMAR MILIND
 
 
 Boiler Plate :- "StartC++"
