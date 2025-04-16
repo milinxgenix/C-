@@ -1402,7 +1402,7 @@ int main()
 
 
 
-                                            //RUN-TIME POLYMORPHISM (resolved at run time)
+                                    //RUN-TIME POLYMORPHISM (resolved at run time)
 
 // 1. Function Over-Riding        -- same name funtion in both base & inherited class
 /*
@@ -1437,11 +1437,11 @@ class child : public father
 
 int main()
 {
-    father* p;  //pointer variable of father class
-    child c;    // obj of child class
-    p = &c;        // at runtime we changed the definition of pointer variable p from father class to child class this is know as "overriding of obj variable at runtime"
-    p->print();     //virtual keyword used so it will get over rided and will print "child class"
-    p->showcase();    //virtual keyword not used so it won't be over rided and show "papa"
+    father* p;          //pointer variable of father class
+    child c;            // obj of child class
+    p = &c;             // at runtime we changed the definition of pointer variable p from father class to child class this is know as "overriding of obj variable at runtime"
+    p->print();         //virtual keyword used so it will get over rided and will print "child class"
+    p->showcase();      //virtual keyword not used so it won't be over rided and show "papa"
     cout<<endl<<endl;
     c.print();
     c.showcase();
@@ -1449,7 +1449,8 @@ int main()
     //we can over ride pointer variable from parent class to child class not from child to parent
     // function over riding is done using virtual keyword by the below stated way:-
     // pehle father class ka variable banaye h firr child class ka obj aur firr parent class ke pointer mei child class ke obj ka address daal kr over ride kr diye h...
-
+    // overrided print fn using virtual keyword so it will reflect child class characters
+    // Didn't override showcase so it will reflect parent class characters 
 }
 */
 
@@ -1465,8 +1466,8 @@ int main()
 
                                                          
 
-                                                        // function overloading in inheritance class
-/*
+                                    // FUNCTION OVERLOADING IN INHERITANCE CLASS
+/* 
 #include<iostream>
 #include<string>
 using namespace std;
@@ -1476,9 +1477,8 @@ class parent
     int l;
     int b;
     void print(int l, int b)
-    //void print()
     {
-        cout<<l*b<<endl;
+        cout<<l*b<<" by parent"<<endl;
     }
 };
 
@@ -1486,12 +1486,14 @@ class son : public parent
 {
     public:
     int h;
-    void print(int l, int b, int h)
-    //void print()
+    using parent::print;                    // Inheriting base class contructor into child class
+    
+    void print(int l, int b, int h)         // Own constructor of child class
     {
-        cout<<l*b*h;
+        cout<<l*b*h<<" by child"<<endl;
     }
 };
+
 int main()
 {
     int l,b,h;
@@ -1499,10 +1501,11 @@ int main()
     parent p;
     son s;
     p.print(l,b);
+    s.print(l,b);               //Inherited constructor of parent class will work for child class object 's'
     s.print(l,b,h);
     return 0;
 }
-*/
+ */
 
 
 
@@ -1510,9 +1513,9 @@ int main()
                                         
                                         
                                         
-                                        //STATIC MEMBER FUCTION & STATIC VARIABLE
+                                        //STATIC VARIABLE
+                //(can be use to track no. of objects created of a particular class)
 /*
-// static variable use krne se no of employee ka pta chl rha aur nth employee ka v but agar static ki jgh normally count bnate to wo sb object ko employee no 1 hi show krta...                                         
 #include<iostream>
 #include<string>
 using namespace std;
@@ -1536,8 +1539,8 @@ class employee
     }
 };
 
-int employee :: count;             // by default value of static variable is always 0.
-//int employee :: count = 100;     //to start counting from 100 like this u can initialized initial value to ur static variable
+int employee :: count;             // by default, value of static variable is always 0.
+//int employee :: count = 100;     // to start counting from 100 like this u can initialized initial value to ur static variable
 
 int main()
 {
@@ -1555,11 +1558,12 @@ int main()
     return 0;
 }
 */
+// static variable use krne se no of employee ka pta chl rha h aur nth employee ka v but agar static ki jgh normally count bnate to wo sb object ko employee no 1 hi show krta...                                         
 
 
 
 
-                                                //STATIC MEMBER FUNCTION
+                                        //STATIC MEMBER FUNCTION
 /*                                       
 // Static member fn is used to access all static variables separetly (they can access only static variables)...
 #include<iostream>
@@ -1618,54 +1622,13 @@ int main()
 
 
 
-/*
-#include<iostream>
-#include<string>
-using namespace std;
-class parent
-{
-    public:
-    int l;
-    int b;
-    void print()
-    {
-        cout<<l*b<<endl;
-    }
-};
-
-class son : public parent
-{
-    public:
-    int h;
-    void print()
-    {
-        cout<<l*b*h;
-    }
-};
-int main()
-{
-    int l,b,h;
-    cin>>l>>b>>h;
-    parent p;
-    son s;
-    //p.print();
-    s.print();
-    return 0;
-}
-*/
-
-
-
-
-
-
 
 
 
 
                                         // I/O files :- (fstreambase, ifstream, ofstream) classes
-                                        // out:- program se bahar file mei jaa rha h 
-                                        // in:- file se program ke andr aaa rha hai 
+                                        // ofstream:- to write into the file
+                                        // ifstream:- to read contents of files 
 
 //writting a txt file
 /*
@@ -1675,7 +1638,7 @@ using namespace std;
 
 int main(){ 
     string st3 = "hello milind! this is a sample text file";
-    ofstream out("sampleFile.txt");         //created out object of ofstream class
+    ofstream out("sampleFile.txt");                  //created an object of name 'out', of ofstream class
     out<<st3;
 
     out.close();        //using this we can read and write together in same code i.e in same int main()...
@@ -1692,7 +1655,7 @@ using namespace std;
 int main(){
     string st;
     string st2;
-    ifstream in("sampleFile.txt");      //reading the file
+    ifstream in("sampleFile.txt");      //reading the file with help of 'in' object of ifstream class
     //in>>st;                           //will extract single word from file 
     //cout<<st<<endl;
     getline(in,st2);                    //extracting the content of file to st2
