@@ -4,7 +4,7 @@ C++' NOTES BY KUMAR MILIND
 Boiler Plate :- "StartC++"
 
 
-VScode shortcuts:-          
+                        VScode shortcuts:-          
         
         1. shift + opt + up/down -- copy paste same line above or below
         2. select all lines to be commented then press cmnd + /
@@ -27,7 +27,7 @@ VScode shortcuts:-
 
 
 
-//DOUBTS
+                                DOUBTS
                            
         1.  MAKING POINTER FOR OBJ AS WE MAKE NORMALLY IN C - LINE 836(POINTER IN CLASS)  
         2.  operator overloading mei real kya h, c1 kya h, c2 kya h, ek baar mei ek hi argument kyu paas ho rha h, c1 c2 mei se kaun pas ho rha h as argument (collg wala vid - 1:12:00)...
