@@ -1720,7 +1720,6 @@ int main(){
 
 
 
-
                                         //Templates in C++    
 
                                         //CLASS TEMPLATES:- 
@@ -1852,7 +1851,7 @@ int main(){
 
 
 
-                                //MULTIPLE TEMPLATES
+                                                //MULTIPLE TEMPLATES
 /*                                
 #include<iostream>
 using namespace std;
@@ -2014,13 +2013,15 @@ int main()
 
 
 
+
+
+
                         //STL :- STANDARD TEMPLATE LIBRARY = Containers + Algo + Iterators
                         
 //Containers :- 
     // Sequence Containers --> Linear Fashion :- Vector, linked List, Dequeue
     // Associative Containers --> Direct Access :- Dictionary(Map, MultiMap) , Set,MultiSet, Tree
     // Derived Containers --> Real World Modeling :- Stack, Queue, Priority Queue
-
 
 
 
@@ -2106,7 +2107,7 @@ int main(){
                 cin>>a;
                 vec.push_back(a);
 
-        // Taking user input using loops :-   (Can be done using iterator also)
+        // Taking user input using loops :-
                 for(int i=0; i<5; i++)
                 {
                     int element;
@@ -2221,8 +2222,6 @@ int main(){
 */  
 
 
-                 
-
 
                         //2. Lists :- Doubly Linked List        (Forward list :- Singly linked list)
 
@@ -2231,6 +2230,8 @@ int main(){
 //          * Can be push & pop from front & back both
 //          * Iterator works here too
 //          * .size(), .erase(), .clear(), begin, end, rbegin, rend(), insert, front, back    all these methods are also defined
+
+
 
 /*
 #include<iostream>
@@ -2304,10 +2305,6 @@ int main(){
 
 
 
-
-
-
-
                         //3. Deque :- Double Ended Queue
 
 // * Deque :- means double ended queue works totally same as list
@@ -2334,7 +2331,6 @@ int main(){
         cout<<d.at(3)<<endl;
 }
 */
-
 
 
 
@@ -2371,7 +2367,7 @@ cout<<endl;
 
 
 
-                                // VECTOR of PAIRs :-
+                                        // VECTOR of PAIRs :-
 
 vector<pair<int,int>> vec = {{1,2}, {2,3}, {5,6}};
 
@@ -2401,7 +2397,7 @@ vector<pair<int,int>> vec = {{1,2}, {2,3}, {5,6}};
 
 
 
-                                // ARRAY of PAIRs:-
+                                        // ARRAY of PAIRs:-
 
 pair<int, int> arr[] = {{1,2},{2,3},{3,4},{8,9}};
 
@@ -2416,7 +2412,7 @@ for(auto val : arr){
 
 
 
-                                       //Non-Sequential Containers
+                                        //Non-Sequential Containers
 
                         //1. STACK:- LIFO :--  element added at the last will be popped out first
 /*                        
@@ -2472,6 +2468,7 @@ int main(){
 
 //      * push, emplace, front, pop, size, empty, swap
 //      * Every thing same as stack just we have "front" here instead of top
+
 /*
 #include<iostream>
 #include<queue>
@@ -2539,7 +2536,7 @@ int main(){
 
 
 
-                                            //4. MAP
+                                        //4. MAP
 //stores (key, value) pairs
 //KEY will be unique
 //associative array like dictionary of python
@@ -2656,6 +2653,112 @@ int main(){
         }
 }
 */
+
+
+
+
+                                        //5. SET
+//      * It also works as Tree internally similar to MAP
+//      * Insert, Emplace, Count, Erase    :- O(n) complexity
+//      * Find, Size, Empty, Erase
+/*
+#include<iostream>
+#include<set>
+using namespace std;
+
+int main(){
+        set<int> s;
+
+        s.insert(1);
+        s.insert(2);
+        s.insert(3);
+        s.insert(5);
+        s.insert(4);
+        s.insert(8);
+
+           s.insert(1);                  //Don't take duplicate values  
+           s.insert(2);
+           s.insert(3);
+
+        cout<<s.size()<<endl;
+
+        for(int val : s){               //here instead of "int" we can also put "auto"
+                cout<<val<<" ";
+        }
+        cout<<endl;
+
+//Lower Bound
+        cout<< "lower bound for 4 = "<< *(s.lower_bound(4)) <<endl;        //returns same number as given as input if that number exist in SET
+        cout<< "lower bound for 6 = "<< *(s.lower_bound(6)) <<endl;        // Or will returns slight greater number available in the SET if inputted number is not there in the SET
+        cout<< "lower bound for 7 = "<< *(s.lower_bound(7)) <<endl;
+        cout<< "lower bound for 9 = "<< *(s.lower_bound(9)) <<endl;        // If no value in the SET is either equal to or greater than given Input then it will return   "s.end();"
+cout<<endl;
+
+//Upper Bound
+        cout<< "upper bound for 4 = "<< *(s.upper_bound(4)) <<endl;        //Will always return a greater value to our input (not same not small always greater)
+        cout<< "upper bound for 6 = "<< *(s.upper_bound(6)) <<endl;
+        cout<< "upper bound for 8 = "<< *(s.upper_bound(8)) <<endl;        //if greater value doesn't exist it will return  "s.end();"
+        cout<< "upper bound for 9 = "<< *(s.upper_bound(9)) <<endl;
+        cout<< "upper bound for 0 = "<< *(s.upper_bound(0)) <<endl;        //Even if the input value is not in the SET it will return a value greater than this
+}
+*/
+
+
+
+                                        //5B. Multi SET
+/*                                
+#include<iostream>
+#include<set>
+using namespace std;
+
+int main(){
+        multiset<int> s;
+
+        s.insert(1);
+        s.insert(2);
+        s.insert(3);
+        s.insert(5);
+        s.insert(4);
+        s.insert(8);
+
+          s.insert(1);       // Will take duplicates also
+          s.insert(2);
+          s.insert(3);
+
+        for(auto val : s){            
+                cout<<val<<" ";
+        }
+}
+*/
+
+
+
+                                //5C. Unordered SET :- As it's not sorted so LOWER_Bound & UPPPER_Bound doesn't exist here
+/*                             
+#include<iostream>
+#include<unordered_set>
+using namespace std;
+
+int main(){
+        unordered_set<int> s;
+
+        s.insert(1);
+        s.insert(2);
+        s.insert(3);
+        s.insert(5);
+        s.insert(4);
+        s.insert(8);
+
+          s.insert(1);       // Won't take duplicates also
+          s.insert(2);
+          s.insert(3);
+
+        for(auto val : s){              //will return in random order 
+                cout<<val<<" ";
+        }
+}
+*/
+
 
 
 
@@ -2858,6 +2961,7 @@ int main(){
 
 }
 */
+
 
 
 
