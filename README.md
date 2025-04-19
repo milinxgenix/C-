@@ -2,7 +2,8 @@
 
 
 Boiler Plate :- "StartC++"
-
+ 
+To include almost all standard libraries at once using  #include<bits/stdc++.h>
 
    VScode shortcuts:-          
         
