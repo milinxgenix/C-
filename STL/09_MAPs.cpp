@@ -21,14 +21,20 @@ int main(){
         m.insert({"camera", 25});
         //m.insert({"camera", 25},{"lens", 8});         //can't pass multiple keys & value like this
         //m.insert(make_pair("Ankit", 179));            //Used in old C++ extension 
+        
 //Emplace :-
         m.emplace("toolkit", 90);
+        
 //count :-
         cout<<"count = "<<m.count("laptop")<<endl;    //returns 1 if the key exist and 0 if it doesn't
         cout<<"laptop = " << m["laptop"]<<endl;
+        
 //Erase :- 
         m.erase("tv");
-//Find :- 
+        
+//Find :-   
+// map1.find(key)  :- Returns iterator to key or map1.end()   
+// *(map1.find(key)) :- Dereferences the iterator (gives key-value pair)
 
         if(m.find("camera") != m.end()){
                 cout<<"found\n";
