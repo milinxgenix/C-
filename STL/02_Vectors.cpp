@@ -63,10 +63,13 @@ int main(){
                 cout<< "value at index 3 is "<<vec.at(3)<<endl;
                 cout<< "Front Element "<<vec.front()<<endl;
                 cout<< "last Element "<<vec.back()<<endl;
-
-        //6. Erase :- 
-                vec.erase(vec.begin());                               //can't pass index
+                
+        //6. Erase :-  //can't pass index
+                // vec.erase(vec.front());                            // Invalid as vec.front() is not a pointer/iterator instead it returns element directly
+                vec.erase(vec.begin());                              
                 vec.erase(vec.begin()+3);                             //delete the element at index 3
+                vec.erase(vec.end());                                 //Not Valid as vec.end() points to garbage value
+                vec.erase(vec.end()-1);
                 vec.erase(vec.begin() + 1, vec.begin() + 4);          //will erase a range of elements
                 //vec.erase(vec.at(3));                               //Don't works like this anyhow we will be using iterator as we have done in abv example
         
